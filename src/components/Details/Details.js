@@ -5,26 +5,24 @@ const Details = (props) => {
         <section className="details">
             <ul>
                 <li className="expenses">
-                    <h4>Monthly Expenses</h4>
-                    <label>{props.MonthlyExp}</label>
+                    <h5>Monthly Expenses</h5>
+                    <label>{props.MonthlyExp}{props.currency}</label>
                 </li>
                 <li className="expenses">
-                    <h4>Anual Expenses</h4>
-                    <label>{props.MonthlyExp}</label>
+                    <h5>Anual Expenses</h5>
+                    <label>{props.AnualExp}{props.currency}</label>
                 </li>
                 <li className="incomes">
-                    <h4>Monthly Income</h4>
-                    <label>{props.MonthlyInc}</label>
+                    <h5>Monthly Income</h5>
+                    <label>{props.MonthlyInc}{props.currency}</label>
                 </li>
                 <li className="incomes">
-                    <h4>Anual Income</h4>
-                    <label>{props.AnualInc}</label>
+                    <h5>Anual Income</h5>
+                    <label>{props.AnualInc}{props.currency}</label>
                 </li>
             </ul>
         </section>
     )
 }
-
-
 
 export default Details

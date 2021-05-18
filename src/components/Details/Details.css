@@ -1,0 +1,25 @@
+.details{
+    border: 1px solid black;
+}
+.details ul {
+    background-color: var(--primary-clr);
+    text-align: center;
+    padding: 10px;
+    margin: 0;
+}
+.details ul > li{
+    display: inline-block;
+    padding: 0 10px;
+    margin: 0 5px;
+    box-shadow: 0 0 10px -2px black;
+}
+.details .expenses,
+.details .incomes{
+    color: white;
+}
+.details .expenses{
+    background-color: var(--negative-clr);
+}
+.details .incomes{
+    background-color: var(--positive-clr);
+}

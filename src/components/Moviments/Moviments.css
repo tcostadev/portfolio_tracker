@@ -1,0 +1,23 @@
+.moviments-list {
+    margin: 15px;
+    border: 1px solid;
+}
+.moviment-item {
+    margin: 15px;
+    padding: 10px;
+    background: var(--secundary-clr);
+}
+    .moviment-item h3 {
+        display: flex;
+        justify-content: space-between;
+        margin: 0;
+    }
+        .moviment-item h3 button{
+            margin-left: 2em;
+        }
+
+.delete-moviment{
+    color: red;
+    cursor: pointer;
+    margin-left: 20px;
+}

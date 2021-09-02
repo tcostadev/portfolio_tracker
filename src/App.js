@@ -5,6 +5,8 @@ import Moviments from './components/Moviments/Moviments.js'
 import { useState } from 'react'
 
 function App() {
+  const currency = "€";
+
   const [moviments, setMoviments] = useState(
     [
       {
@@ -34,8 +36,8 @@ function App() {
   return (
     <div className="App">
       <Header/>
-      <Details MonthlyExp={100} AnualExp={1000} MonthlyInc={2000} AnualInc={12000} currency="€"/>
-      <Moviments moviments={moviments}/>
+      <Details MonthlyExp={100} AnualExp={1000} MonthlyInc={2000} AnualInc={12000} currency={currency}/>
+      <Moviments moviments={moviments} currency={currency}/>
     </div>
   );
 }

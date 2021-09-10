@@ -1,16 +1,34 @@
-import { FaTimes } from 'react-icons/fa'
-import React from 'react'
+import { FaPencilAlt, FaTimes } from 'react-icons/fa'
+import React, {useState} from 'react'
 
 const MovimentItem = ({item, currency}) => {
+    const [editMode, setEditMode] = useState(false);
+
+    var classMoviment = 'moviment-item ';
+    if (item.type === 'income'){
+        classMoviment += 'income';
+    }else{
+        classMoviment += 'expense';
+    }
+
+    const onClickEditMode = () => {
+        setEditMode(!editMode);
+    };
+
     return (
-        <div className="moviment-item">
+        <div className={classMoviment}>
             <h3>
+                {
+                  editMode ? <label>edit mode</label> : <label>read mode</label>
+                }
+                
                 <label>
                     {item.moviment}
                 </label>
                 <label>
                     {item.value} {currency}
-                    <FaTimes className="delete-moviment" /*onClick={() => onDelete(task.id)}*/ />
+                    <FaPencilAlt className="moviment-action edit-moviment" onClick={onClickEditMode} />
+                    <FaTimes className="moviment-action delete-moviment" /*onClick={() => onDelete(task.id)}*/ />
                 </label>
             </h3>
             <p>

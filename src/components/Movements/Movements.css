@@ -1,32 +1,32 @@
-.moviments-list {
+.movements-list {
     margin: 15px;
     border: 1px solid;
 }
-.moviment-item {
+.movement-item {
     margin: 15px;
     padding: 10px;
-    background: var(--secundary-clr);
+    background: var(--secondary-clr);
 }
-    .moviment-item.expense{
+    .movement-item.expense{
         border-left: 5px solid var(--negative-clr);
     }
-    .moviment-item.income{
+    .movement-item.income{
         border-left: 5px solid var(--positive-clr);
     }
-    .moviment-item h3 {
+    .movement-item h3 {
         display: flex;
         justify-content: space-between;
         margin: 0;
     }
 
-.moviment-action{
+.movement-action{
     cursor: pointer;
     margin-left: 1em;
 }
-.delete-moviment{
+.delete-movement{
     color: var(--negative-clr);
     
 }
-.edit-moviment{
+.edit-movement{
     color: var(--dark-clr)
 }

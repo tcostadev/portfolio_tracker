@@ -10,8 +10,8 @@ const Details = (props) => {
                 </li>
                 {/*                 
                 <li className="expenses">
-                    <h5>Anual Expenses</h5>
-                    <label>{props.AnualExp}{props.currency}</label>
+                    <h5>Annual Expenses</h5>
+                    <label>{props.AnnualExp}{props.currency}</label>
                 </li> 
                 */}
                 <li className="incomes">
@@ -20,8 +20,8 @@ const Details = (props) => {
                 </li>
                 {/*
                 <li className="incomes">
-                    <h5>Anual Income</h5>
-                    <label>{props.AnualInc}{props.currency}</label>
+                    <h5>Annual Income</h5>
+                    <label>{props.AnnualInc}{props.currency}</label>
                 </li>
                 */}
             </ul>

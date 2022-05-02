@@ -8,6 +8,7 @@ import routes from "./routes.js";
 import AdminNavbar from "./components/Navbar/AdminNavbar";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Login from "./components/Login/Login"
+import Dashboard from "./pages/Dashboard";
 
 function App() {
   // useEffect(()=>{ doSomething }, [])

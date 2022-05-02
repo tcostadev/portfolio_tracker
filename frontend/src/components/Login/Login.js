@@ -2,10 +2,11 @@ import { useState, useEffect } from 'react'
 import './Login.css';
 import { FaSignInAlt } from 'react-icons/fa'
 import { useSelector, useDispatch } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
+//import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { login, reset } from '../../features/auth/authSlice'
 import Spinner from '../Spinner/Spinner'
+import logo from '../../assets/img/logo.svg'
 
 function Login() {
   const [formData, setFormData] = useState({
@@ -15,7 +16,7 @@ function Login() {
 
   const { email, password } = formData
 
-  const navigate = useNavigate()
+  //const navigate = useNavigate()
   const dispatch = useDispatch()
 
   const { user, isLoading, isError, isSuccess, message } = useSelector(
@@ -28,11 +29,11 @@ function Login() {
     }
 
     if (isSuccess || user) {
-      navigate('/')
+      window.location.pathname = "/";
     }
 
     dispatch(reset())
-  }, [user, isError, isSuccess, message, navigate, dispatch])
+  }, [user, isError, isSuccess, message, dispatch])
 
   const onChange = (e) => {
     setFormData((prevState) => ({
@@ -58,12 +59,11 @@ function Login() {
 
   return (
     <>
+     {/* <img className="img-logo" src={logo} alt="Money Savings Logo"/> */}
       <main className="form-initial">
-        <section className='heading'>
-          <h1>
-            <FaSignInAlt /> Login
-          </h1>
-          <p>Login and start setting goals</p>
+        <section className='login-heading'>
+          <img className="img-logo" src={logo} alt="Money Savings Logo"/>
+          <h3>Sign-In</h3>
         </section>
 
         <section className='form'>

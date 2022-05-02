@@ -16,6 +16,9 @@
 
 */
 import Dashboard from "./pages/Dashboard";
+import Movements from "./components/Movements/Movements";
+import Categories from "./components/Categories/Categories";
+import User from "./components/User/User";
 // import UserProfile from "views/UserProfile.js";
 // import TableList from "views/TableList.js";
 // import Typography from "views/Typography.js";
@@ -36,21 +39,21 @@ const dashboardRoutes = [
     path: "/movements",
     name: "Movements",
     icon: "fas fa-hand-holding-usd",
-    //component: UserProfile,
+    component: <Movements/>,
     layout: "/admin",
   },
   {
     path: "/categories",
     name: "Categories",
     icon: "fas fa-file-alt",
-    //component: UserProfile,
+    component: <Categories/>,
     layout: "/admin",
   },
   {
     path: "/user",
     name: "User Profile",
     icon: "fas fa-user-circle",
-    //component: UserProfile,
+    component: <User/>,
     layout: "/admin",
   }
 ];

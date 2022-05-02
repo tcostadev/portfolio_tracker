@@ -59,7 +59,6 @@ function Header() {
             <Nav.Item>
               <Nav.Link
                 className="m-0"
-                href="#pablo"
                 onClick={onLogout}
               >
                 <span className="no-icon">Log out</span>

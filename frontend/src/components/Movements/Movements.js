@@ -6,7 +6,7 @@ const Movements = (props) => {
     
     let movements = <h1>No movements available!</h1>
 
-    if (props.movements.length > 0){
+    if (props.movements && props.movements.length > 0){
         movements = props.movements.map((mov, index) => (
             <MovementItem key={mov._id} item={mov} currency={props.currency}/>
         ));

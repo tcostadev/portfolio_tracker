@@ -1,8 +1,10 @@
 const mongoose = require('mongoose')
 
+const url = 'mongodb+srv://portfolio-app:chefecarlos123@portfoliotracker-db.cab0jpi.mongodb.net/?retryWrites=true&w=majority&appName=portfoliotracker-db';
+
 const connectDB = async () => {
   try {
-    const conn = await mongoose.connect(process.env.MONGO_URI)
+    const conn = await mongoose.connect(url)
 
     console.log(`MongoDB Connected: ${conn.connection.host}`.cyan.underline)
   } catch (error) {

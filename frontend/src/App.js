@@ -1,62 +1,64 @@
-import './App.css';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import { ToastContainer } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
-import { useSelector } from 'react-redux'
-import React from 'react';
-import routes from "./routes.js";
-import AdminNavbar from "./components/Navbar/AdminNavbar";
-import Sidebar from "./components/Sidebar/Sidebar";
-import Login from "./components/Login/Login"
-import Dashboard from "./pages/Dashboard";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useSelector } from "react-redux";
+import React from "react";
+import Login from "./components/Login/Login";
+import Navbar from "./components/Navbar/Navbar.tsx";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { dashboardRoutes, settingsRoutes } from "../src/routes.js";
+import CssBaseline from "@mui/material/CssBaseline";
+import Box from "@mui/material/Box";
+import { alpha } from "@mui/material/styles";
 
 function App() {
-  // useEffect(()=>{ doSomething }, [])
-  // empty array trigger use effect at the first render; 
-  // empty trigger use effect every time. 
-  // if pass props or state, will trigger every time this items changes 
+  const { user } = useSelector((state) => state.auth);
 
-  const { user } = useSelector((state) => state.auth)
-  
-  if(!user){
-    return(
-      <Login></Login>
-    );
+  if (!user) {
+    return <Login></Login>;
   }
-  
+
+  console.log(user);
+
   const getRoutes = (routes) => {
     return routes.map((prop, key) => {
-      return (
-        <Route
-          path={prop.path}
-          element={prop.component}
-          key={key}
-        />
-      );
+      return <Route path={prop.path} element={prop.component} key={key} />;
     });
   };
-
-  let mainClassName = 'wrapper';
-  if (!user){
-    mainClassName += ' background-full';
-  }
-
+  // {...props} themeComponents={xThemeComponents}
   return (
     <>
+      {/* <AppTheme> */}
       <Router>
-        <div className={mainClassName}>
-          <Sidebar color={'black'} image={""}  routes={routes}/>
-          <main className='main-panel'>
-            <AdminNavbar/>
+        <CssBaseline enableColorScheme />
+        <Box sx={{ display: "flex" }}>
+          <Navbar />
+
+          <ToastContainer />
+          {/* Main content */}
+          <Box
+            component="main"
+            sx={(theme) => ({
+              flexGrow: 1,
+              backgroundColor: theme.vars
+                ? `rgba(${theme.vars.palette.background.defaultChannel} / 1)`
+                : alpha(theme.palette.background.default, 1),
+              overflow: "auto",
+              width: "100%",
+              alignItems: "center",
+              mx: 3,
+              pb: 5,
+              mt: { xs: 8, md: 5 },
+            })}
+          >
             <Routes>
-              {getRoutes(routes)} 
+              {getRoutes([...dashboardRoutes, ...settingsRoutes])}
             </Routes>
-          </main>
-        </div>
+          </Box>
+        </Box>
       </Router>
-      <ToastContainer />
+      {/* </AppTheme> */}
     </>
-  )
+  );
 }
 
 export default App;

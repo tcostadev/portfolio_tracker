@@ -9,6 +9,9 @@ const User = require('../models/userModel')
 const registerUser = asyncHandler(async (req, res) => {
   const { name, email, password } = req.body
 
+  console.log(req);
+  console.log(email);
+  console.log(password);
   if (!name || !email || !password) {
     res.status(400)
     throw new Error('Please add all fields')
@@ -77,7 +80,7 @@ const getMe = asyncHandler(async (req, res) => {
 
 // Generate JWT
 const generateToken = (id) => {
-  return jwt.sign({ id }, process.env.JWT_SECRET, {
+  return jwt.sign({ id }, 'S3cReT#Key_9079!@4&%1^(R4nD0m)', {
     expiresIn: '30d',
   })
 }

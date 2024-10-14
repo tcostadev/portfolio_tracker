@@ -1,12 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "./Login.css";
-import { FaSignInAlt } from "react-icons/fa";
-import { useSelector, useDispatch } from "react-redux";
-//import { useNavigate } from 'react-router-dom'
-import { toast } from "react-toastify";
-import { login, reset } from "../../features/auth/authSlice";
-import Spinner from "../Spinner/Spinner";
-import logo from "../../assets/img/logo.svg";
+import { useDispatch } from "react-redux";
+import { login } from "../../features/auth/authSlice";
 import {
   TextField,
   Box,
@@ -14,10 +9,12 @@ import {
   FormLabel,
   Button,
   Divider,
+  Typography,
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import Stack from "@mui/material/Stack";
 import MuiCard from "@mui/material/Card";
+import logo from "../../../src/assets/img/logo.svg";
 
 function Login() {
   //#region styling
@@ -124,6 +121,24 @@ function Login() {
             gap: 2,
           }}
         >
+          <Stack direction="row" alignItems="center" spacing={1}>
+            <Box sx={{ width: 50 }}>
+              <img src={logo} alt="Logo" style={{ maxWidth: "100%" }} />
+            </Box>
+            <Box>
+              <Typography
+                variant="body2"
+                sx={{
+                  fontWeight: 500,
+                  lineHeight: "16px",
+                  textDecoration: "bold",
+                }}
+              >
+                Portfolio Tracker
+              </Typography>
+            </Box>
+          </Stack>
+
           <FormControl>
             <FormLabel htmlFor="email">Email</FormLabel>
             <TextField

@@ -11,6 +11,7 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import Stack from "@mui/material/Stack";
 import OptionsMenu from "./OptionsMenu.tsx";
+import logo from "../../../src/assets/img/logo.svg";
 
 const drawerWidth = 240;
 const Drawer = styled(MuiDrawer)({
@@ -42,7 +43,40 @@ function Navbar() {
         },
       }}
     >
-      <Stack sx={{ flexGrow: 1, p: 1, justifyContent: "space-between" }}>
+      <Stack
+        direction="row"
+        alignItems="center"
+        spacing={1}
+        sx={{
+          p: 2,
+        }}
+      >
+        <Box sx={{ width: 50 }}>
+          <img src={logo} alt="Logo" style={{ maxWidth: "100%" }} />
+        </Box>
+        <Box>
+          <Typography
+            variant="body2"
+            sx={{
+              fontWeight: 500,
+              lineHeight: "16px",
+              textDecoration: "bold",
+            }}
+          >
+            Portfolio Tracker
+          </Typography>
+        </Box>
+      </Stack>
+
+      <Stack
+        sx={{
+          flexGrow: 1,
+          p: 1,
+          justifyContent: "space-between",
+          borderTop: "1px solid",
+          borderColor: "divider",
+        }}
+      >
         <List dense>
           {dashboardRoutes.map((item, index) => (
             <ListItem key={index} disablePadding sx={{ display: "block" }}>
